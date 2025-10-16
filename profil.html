@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil - SportWear</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Import des icônes Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span class="logo-main">AllSports</span>
+      </div>
+
+      <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Produits</a>
+        <a href="#">Contact</a>
+        <a href="#" class="active">Profil</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Mon Profil</h1>
+
+      <section class="profil-container">
+        <div class="profil-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h2>Informations personnelles</h2>
+          <p><strong>Nom :</strong> Jean Dupont</p>
+          <p><strong>Email :</strong> jean.dupont@email.fr</p>
+          <p><strong>Téléphone :</strong> +33 6 12 34 56 78</p>
+          <button>Modifier mes informations</button>
+        </div>
+
+        <div class="profil-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h2>Adresse de livraison</h2>
+          <p>123 Rue du Sport<br />75001 Paris<br />France</p>
+          <button>Gérer mes adresses</button>
+        </div>
+
+        <div class="profil-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+          <h2>Paramètres</h2>
+          <ul>
+            <li><a href="#">Changer le mot de passe</a></li>
+            <li><a href="#">Préférences de notification</a></li>
+            <li><a href="#">Confidentialité</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="commandes">
+        <div class="header-commandes">
+          <i class="fa-solid fa-box"></i>
+          <h2>Mes Commandes</h2>
+        </div>
+        <div class="no-order">
+          <i class="fa-solid fa-box-open"></i>
+          <p>Vous n'avez pas encore passé de commande</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Fenêtre modale pour modifier les informations -->
+    <div id="modal-profil" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Modifier mes informations</h2>
+        <form id="form-profil">
+          <label>Nom :</label>
+          <input type="text" id="nom" value="Jean Dupont" required />
+
+          <label>Email :</label>
+          <input
+            type="email"
+            id="email"
+            value="jean.dupont@email.fr"
+            required
+          />
+
+          <label>Téléphone :</label>
+          <input type="tel" id="tel" value="+33 6 12 34 56 78" required />
+
+          <button type="submit">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modale : Informations personnelles -->
+    <div id="modal-profil" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Modifier mes informations</h2>
+        <form id="form-profil">
+          <label>Nom :</label>
+          <input type="text" id="nom" value="Jean Dupont" required />
+
+          <label>Email :</label>
+          <input
+            type="email"
+            id="email"
+            value="jean.dupont@email.fr"
+            required
+          />
+
+          <label>Téléphone :</label>
+          <input type="tel" id="tel" value="+33 6 12 34 56 78" required />
+
+          <button type="submit">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modale : Adresse -->
+    <div id="modal-adresse" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Gérer mes adresses</h2>
+        <form id="form-adresse">
+          <label>Adresse :</label>
+          <textarea id="adresse" rows="3">
+123 Rue du Sport, 75001 Paris, France</textarea
+          >
+          <button type="submit">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modale : Mot de passe -->
+    <div id="modal-mdp" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Changer le mot de passe</h2>
+        <form id="form-mdp">
+          <label>Ancien mot de passe :</label>
+          <input type="password" id="old-mdp" required />
+
+          <label>Nouveau mot de passe :</label>
+          <input type="password" id="new-mdp" required />
+
+          <button type="submit">Changer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modale : Notifications -->
+    <div id="modal-notif" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Préférences de notification</h2>
+        <form id="form-notif">
+          <label
+            ><input type="checkbox" checked /> Recevoir les offres
+            promotionnelles</label
+          ><br />
+          <label
+            ><input type="checkbox" /> Recevoir les alertes de commande</label
+          ><br />
+          <button type="submit">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modale : Confidentialité -->
+    <div id="modal-conf" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Paramètres de confidentialité</h2>
+        <form id="form-conf">
+          <label><input type="checkbox" /> Rendre mon profil public</label
+          ><br />
+          <label><input type="checkbox" checked /> Accepter les cookies</label
+          ><br />
+          <button type="submit">Sauvegarder</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div><i class="fa-solid fa-store"></i> Boutique</div>
+      <div><i class="fa-solid fa-headset"></i> Support</div>
+      <div><i class="fa-solid fa-scale-balanced"></i> Informations légales</div>
+      <div><p>&copy; 2025 AllSports. Tous droits réservés.</p></div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
