@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllSport - Connexion</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+    <div class="conteneur">
+        <div class="forme-courbee"></div>
+        <div class="forme-courbee2"></div>
+        
+        <div class="boite-formulaire Connexion">
+            <h2 class="animation" style="--D:0; --S:21">Connexion</h2>
+            <form action="#">
+                <div class="boite-saisie animation" style="--D:1; --S:22">
+                    <input type="text" required>
+                    <label for="">Nom d'utilisateur</label>
+                    <box-icon type='solid' name='user'></box-icon>
+                </div>
+                
+                <div class="boite-saisie animation" style="--D:2; --S:23">
+                    <input type="password" required>
+                    <label for="">Mot de passe</label>
+                    <box-icon name='lock-alt' type='solid'></box-icon>
+                </div>
+                
+                <div class="boite-saisie animation" style="--D:3; --S:24">
+                    <button href="login.html" class="bouton" type="submit">Se connecter</button>
+                </div>
+                
+                <div class="lien-inscription animation" style="--D:4; --S:25">
+                    <p>Vous n'avez pas de compte ? <br> <a class="LienInscription">S'inscrire</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="contenu-info Connexion">
+            <div class="logo animation" style="--D:0; --S:19">ALLSPORT</div>
+            <h2 class="animation" style="--D:0; --S:20">BON RETOUR !</h2>
+            <p class="animation" style="--D:1; --S:21">Connectez-vous pour accéder à votre espace personnel.</p>
+        </div>
+        
+        <div class="boite-formulaire Inscription">
+            <h2 class="animation" style="--li:17; --S:0">Inscription</h2>
+            <form action="#">
+                <div class="boite-saisie animation" style="--li:18; --S:1">
+                    <input type="text" required>
+                    <label for="">Nom d'utilisateur</label>
+                    <box-icon type='solid' name='user'></box-icon>
+                </div>
+                
+                <div class="boite-saisie animation" style="--li:19; --S:2">
+                    <input type="email" required>
+                    <label for="">Email</label>
+                    <box-icon name='envelope' type='solid'></box-icon>
+                </div>
+                
+                <div class="boite-saisie animation" style="--li:19; --S:3">
+                    <input type="password" required>
+                    <label for="">Mot de passe</label>
+                    <box-icon name='lock-alt' type='solid'></box-icon>
+                </div>
+                
+                <div class="boite-saisie animation" style="--li:20; --S:4">
+                    <button href="login.html" class="bouton" type="submit">S'inscrire</button>
+                </div>
+                
+                <div class="lien-inscription animation" style="--li:21; --S:5">
+                    <p>Vous avez déjà un compte ? <br> <a class="LienConnexion">Se connecter</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="contenu-info Inscription">
+            <div class="logo animation" style="--li:16; --S:0">ALLSPORT</div>
+            <h2 class="animation" style="--li:17; --S:0">BIENVENUE !</h2>
+            <p class="animation" style="--li:18; --S:1">Rejoignez la communauté AllSport et découvrez nos équipements de qualité pour tous les sports.</p>
+        </div>
+    </div>
+</body>
+</html>
