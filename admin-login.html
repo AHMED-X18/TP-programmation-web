@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - SportShop</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-login-page">
+    <!-- HEADER SIMPLIFIÉ -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>SportShop Admin</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- FORMULAIRE DE CONNEXION ADMIN -->
+    <section class="admin-login-section">
+        <div class="container">
+            <div class="admin-login-card">
+                <div class="login-header">
+                    <div class="admin-icon">⚙️</div>
+                    <h2>Espace Administrateur</h2>
+                    <p>Accès réservé au personnel autorisé</p>
+                </div>
+
+                <form id="adminLoginForm" class="admin-login-form">
+                    <div class="form-group">
+                        <label for="adminEmail">Email administrateur</label>
+                        <input type="email" id="adminEmail" name="email" required placeholder="admin@sportshop-cm.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Mot de passe</label>
+                        <input type="password" id="adminPassword" name="password" required placeholder="••••••••">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        🔐 Se connecter
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p><a href="index.html">← Retour au site principal</a></p>
+                    <p class="security-notice">⚠️ Cet espace est sécurisé et surveillé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/admin-login.js"></script>
+</body>
+</html>

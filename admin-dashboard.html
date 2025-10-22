@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - SportShop Admin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-dashboard">
+    <!-- HEADER ADMIN -->
+    <header class="header admin-header">
+        <div class="container">
+            <div class="logo">
+                <h1>SportShop Admin</h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html" class="active">📊 Tableau de bord</a></li>
+                    <li><a href="admin-produits.html">🛍️ Produits</a></li>
+                    <li><a href="admin-commandes.html">📦 Commandes</a></li>
+                    <li><a href="admin-clients.html">👥 Clients</a></li>
+                    <li><a href="admin-categories.html">📁 Catégories</a></li>
+                </ul>
+            </nav>
+            <div class="admin-user-menu">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <span class="user-name">Administrateur</span>
+                </div>
+                <div class="admin-actions">
+                    <a href="index.html" class="btn-small btn-outline">🌐 Site public</a>
+                    <button class="logout-btn">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TABLEAU DE BORD -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-header-section">
+                <h1>Tableau de Bord</h1>
+                <p class="admin-subtitle">Aperçu général de votre boutique en ligne</p>
+                <div class="last-update">
+                    <span>🕒 Dernière mise à jour: <span id="lastUpdateTime">Maintenant</span></span>
+                </div>
+            </div>
+
+            <!-- STATISTIQUES RAPIDES -->
+            <div class="dashboard-stats">
+                <div class="stat-card large">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalRevenue">0 FCFA</div>
+                        <div class="stat-label">Chiffre d'affaires total</div>
+                        <div class="stat-trend positive">+12% ce mois</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalOrders">0</div>
+                        <div class="stat-label">Commandes totales</div>
+                        <div class="stat-trend positive">+5%</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalCustomers">0</div>
+                        <div class="stat-label">Clients inscrits</div>
+                        <div class="stat-trend positive">+8%</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🛍️</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalProducts">0</div>
+                        <div class="stat-label">Produits en stock</div>
+                        <div class="stat-trend neutral">Stable</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAPHIQUES ET DONNÉES -->
+            <div class="dashboard-grid">
+                <!-- COMMANDES RÉCENTES -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>📦 Commandes Récentes</h3>
+                        <a href="admin-commandes.html" class="view-all">Voir tout →</a>
+                    </div>
+                    <div class="recent-orders" id="recentOrders">
+                        <!-- Commandes injectées par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- PRODUITS POPULAIRES -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>🔥 Produits Populaires</h3>
+                        <a href="admin-produits.html" class="view-all">Voir tout →</a>
+                    </div>
+                    <div class="popular-products" id="popularProducts">
+                        <!-- Produits injectés par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- STATISTIQUES DE VENTES -->
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>📈 Statistiques de Ventes</h3>
+                        <div class="period-selector">
+                            <select id="statsPeriod">
+                                <option value="7days">7 derniers jours</option>
+                                <option value="30days" selected>30 derniers jours</option>
+                                <option value="90days">3 derniers mois</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sales-chart" id="salesChart">
+                        <div class="chart-placeholder">
+                            <p>Graphique des ventes</p>
+                            <p class="chart-note">(Intégration avec Chart.js ou autre librairie)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVITÉ RÉCENTE -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>🔄 Activité Récente</h3>
+                    </div>
+                    <div class="activity-feed" id="activityFeed">
+                        <!-- Activités injectées par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- ALERTES STOCK -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>⚠️ Alertes Stock</h3>
+                    </div>
+                    <div class="stock-alerts" id="stockAlerts">
+                        <!-- Alertes injectées par JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIONS RAPIDES -->
+            <div class="quick-actions">
+                <h3>⚡ Actions Rapides</h3>
+                <div class="actions-grid">
+                    <a href="admin-ajouter-produit.html" class="action-card">
+                        <div class="action-icon">➕</div>
+                        <div class="action-text">Ajouter un produit</div>
+                    </a>
+                    <a href="admin-commandes.html?filter=en_attente" class="action-card">
+                        <div class="action-icon">📦</div>
+                        <div class="action-text">Traiter commandes</div>
+                    </a>
+                    <a href="admin-categories.html" class="action-card">
+                        <div class="action-icon">📁</div>
+                        <div class="action-text">Gérer catégories</div>
+                    </a>
+                    <a href="admin-clients.html" class="action-card">
+                        <div class="action-icon">👥</div>
+                        <div class="action-text">Voir clients</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/admin-dashboard.js"></script>
+</body>
+</html>

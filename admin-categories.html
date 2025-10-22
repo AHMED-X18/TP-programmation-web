@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Catégories - SportShop Admin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-dashboard">
+    <!-- HEADER ADMIN -->
+    <header class="header admin-header">
+        <div class="container">
+            <div class="logo">
+                <h1>SportShop Admin</h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html">📊 Tableau de bord</a></li>
+                    <li><a href="admin-produits.html">🛍️ Produits</a></li>
+                    <li><a href="admin-commandes.html">📦 Commandes</a></li>
+                    <li><a href="admin-clients.html">👥 Clients</a></li>
+                    <li><a href="admin-categories.html" class="active">📁 Catégories</a></li>
+                </ul>
+            </nav>
+            <div class="admin-user-menu">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <span class="user-name">Administrateur</span>
+                </div>
+                <div class="admin-actions">
+                    <a href="index.html" class="btn-small btn-outline">🌐 Site public</a>
+                    <button class="logout-btn">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GESTION DES CATÉGORIES -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-header-section">
+                <div class="header-actions">
+                    <h1>Gestion des Catégories</h1>
+                    <button class="btn btn-primary" id="addCategoryBtn">
+                        ➕ Nouvelle catégorie
+                    </button>
+                </div>
+                <p class="admin-subtitle">Organisez vos produits par catégories</p>
+            </div>
+
+            <!-- STATISTIQUES CATÉGORIES -->
+            <div class="categories-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📁</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalCategories">0</div>
+                        <div class="stat-label">Catégories totales</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛍️</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalProductsInCategories">0</div>
+                        <div class="stat-label">Produits catégorisés</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="mostPopularCategory">-</div>
+                        <div class="stat-label">Catégorie populaire</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔍</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="emptyCategories">0</div>
+                        <div class="stat-label">Catégories vides</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTE DES CATÉGORIES -->
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Catégories injectées par JavaScript -->
+            </div>
+
+            <!-- CATÉGORIES VIDES -->
+            <div class="empty-categories-section" id="emptyCategoriesSection" style="display: none;">
+                <h3>⚠️ Catégories sans produits</h3>
+                <div class="empty-categories-list" id="emptyCategoriesList">
+                    <!-- Catégories vides injectées par JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL AJOUT/ÉDITION CATÉGORIE -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="categoryModalContent">
+                <!-- Contenu injecté par JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SUPPRESSION CATÉGORIE -->
+    <div id="deleteCategoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="delete-modal-content">
+                <div class="delete-icon">🗑️</div>
+                <h3>Confirmer la suppression</h3>
+                <p>Êtes-vous sûr de vouloir supprimer la catégorie "<span id="categoryToDeleteName"></span>" ?</p>
+                <p class="warning-text" id="categoryDeleteWarning"></p>
+                <div class="delete-actions">
+                    <button class="btn btn-secondary" id="cancelCategoryDelete">Annuler</button>
+                    <button class="btn btn-danger" id="confirmCategoryDelete">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin-categories.js"></script>
+</body>
+</html>

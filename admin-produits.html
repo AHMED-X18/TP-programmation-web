@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Produits - SportShop Admin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-dashboard">
+    <!-- HEADER ADMIN -->
+    <header class="header admin-header">
+        <div class="container">
+            <div class="logo">
+                <h1>SportShop Admin</h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html">📊 Tableau de bord</a></li>
+                    <li><a href="admin-produits.html" class="active">🛍️ Produits</a></li>
+                    <li><a href="admin-commandes.html">📦 Commandes</a></li>
+                    <li><a href="admin-clients.html">👥 Clients</a></li>
+                    <li><a href="admin-categories.html">📁 Catégories</a></li>
+                </ul>
+            </nav>
+            <div class="admin-user-menu">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <span class="user-name">Administrateur</span>
+                </div>
+                <div class="admin-actions">
+                    <a href="index.html" class="btn-small btn-outline">🌐 Site public</a>
+                    <button class="logout-btn">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GESTION DES PRODUITS -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-header-section">
+                <div class="header-actions">
+                    <h1>Gestion des Produits</h1>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        ➕ Ajouter un produit
+                    </button>
+                </div>
+                <p class="admin-subtitle">Gérez votre catalogue de produits</p>
+            </div>
+
+            <!-- STATISTIQUES PRODUITS -->
+            <div class="products-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">🛍️</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="totalProducts">0</div>
+                        <div class="stat-label">Produits total</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="lowStockProducts">0</div>
+                        <div class="stat-label">Stock faible</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="outOfStockProducts">0</div>
+                        <div class="stat-label">Rupture de stock</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="bestSellerProducts">0</div>
+                        <div class="stat-label">Best-sellers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BARRE D'OUTILS -->
+            <div class="products-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <input type="text" id="searchProducts" placeholder="🔍 Rechercher un produit...">
+                    </div>
+                    <select id="categoryFilter">
+                        <option value="">Toutes catégories</option>
+                        <option value="chaussures">Chaussures</option>
+                        <option value="vetements">Vêtements</option>
+                        <option value="equipement">Équipement</option>
+                        <option value="accessoires">Accessoires</option>
+                    </select>
+                    <select id="stockFilter">
+                        <option value="">Tous les stocks</option>
+                        <option value="in_stock">En stock</option>
+                        <option value="low_stock">Stock faible</option>
+                        <option value="out_of_stock">Rupture</option>
+                    </select>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-outline" id="exportProducts">
+                        📤 Exporter
+                    </button>
+                    <button class="btn btn-outline" id="bulkActions">
+                        🛠️ Actions groupées
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABLEAU DES PRODUITS -->
+            <div class="products-table-container">
+                <table class="products-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-cell">
+                                <input type="checkbox" id="selectAllProducts">
+                            </th>
+                            <th>Produit</th>
+                            <th>Catégorie</th>
+                            <th>Prix</th>
+                            <th>Stock</th>
+                            <th>Statut</th>
+                            <th>Ventes</th>
+                            <th>Date d'ajout</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <!-- Produits injectés par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+                <div class="pagination-info">
+                    Affichage de <span id="showingCount">0</span> sur <span id="totalCount">0</span> produits
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" id="prevPage" disabled>← Précédent</button>
+                    <span class="pagination-numbers" id="paginationNumbers"></span>
+                    <button class="pagination-btn" id="nextPage">Suivant →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL AJOUT/ÉDITION PRODUIT -->
+    <div id="productModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-modal">&times;</span>
+            <div id="productModalContent">
+                <!-- Contenu injecté par JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SUPPRESSION -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="delete-modal-content">
+                <div class="delete-icon">🗑️</div>
+                <h3>Confirmer la suppression</h3>
+                <p>Êtes-vous sûr de vouloir supprimer le produit "<span id="productToDeleteName"></span>" ?</p>
+                <p class="warning-text">Cette action est irréversible.</p>
+                <div class="delete-actions">
+                    <button class="btn btn-secondary" id="cancelDelete">Annuler</button>
+                    <button class="btn btn-danger" id="confirmDelete">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin-products.js"></script>
+</body>
+</html>
