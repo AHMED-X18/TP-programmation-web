@@ -1,0 +1,7 @@
+## On ne stocke pas le numero de tel du clienty, faudra le faire plus tard
+## Pas de generation automatique de tokenn pour faire la diff entre un client et un admin(par exemple) : il faut installer sanctuum  : composer require laravel/sanctum puis php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+php artisan migrate
+
+## L'étape précédante est aussi essentielle pour l'implementation de la déconnexion
+## Les endpoints sur les paniers et les commandes seront directement testés avec le front
+
