@@ -97,5 +97,3 @@ NJEMPOU YAMPEN 22p569 rouchdayampen
 FEZE DJOUMESSI FRED 22P334 demuto21
 AHMED JALIL TADIDA D.  22P265 AHMED-X18
 ---
-
-Ce README couvre la structure et objectifs. Les détails techniques sont dans le code et la documentation Laravel.
