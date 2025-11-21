@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Clients - Admin AllSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/clients.css">
+</head>
+<body onload="checkAuth(); loadClients();">
+
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">AllSports</a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    Voir le site
+                </a>
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Admin</span>
+                        <span class="admin-email">admin@allsports.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1>Gestion des Clients</h1>
+                    <p class="page-subtitle">Gérez tous vos clients</p>
+                </div>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalClients">0</div>
+                    <div class="stat-label">Clients total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="loyalClients">0</div>
+                    <div class="stat-label">Clients fidèles</div>
+                </div>
+            </div>
+
+            <!-- Clients fidèles -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Clients fidèles</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Commandes</th>
+                                <th>Inscrit le</th>
+                            </tr>
+                        </thead>
+                        <tbody id="loyalClientsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Liste de tous les clients -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Liste des clients</h2>
+                
+                <div class="filters-section">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Rechercher par nom ou email..." onkeyup="searchClients()">
+                    </div>
+                </div>
+                
+                <div class="view-options">
+                    <button id="listViewBtn" class="btn btn-outline active" onclick="setViewMode('list')">
+                        <i class="fas fa-list"></i> Liste
+                    </button>
+                </div>
+                
+                <div class="client-count" id="clientCount"></div>
+                
+                <div class="table-container">
+                    <table id="clientsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Commandes</th>
+                                <th>Inscrit le</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/clients.js"></script>
+</body>
+</html>

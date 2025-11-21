@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Commandes - Admin AllSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/commandes.css">
+</head>
+<body onload="checkAuth(); loadOrders();">
+
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">AllSports</a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    Voir le site
+                </a>
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Admin</span>
+                        <span class="admin-email">admin@allsports.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1>Gestion des Commandes</h1>
+                    <p class="page-subtitle">Suivez et traitez toutes les commandes</p>
+                </div>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Liste des commandes</h2>
+                
+                <div class="filters-section">
+                    <div class="dropdown">
+                        <button class="dropdown-btn" onclick="toggleDropdown('statusDropdown')">
+                            <span id="statusText">Tous les statuts</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="statusDropdown" class="dropdown-content">
+                            <a class="dropdown-item" onclick="filterByStatus('all')">Tous les statuts</a>
+                            <a class="dropdown-item" onclick="filterByStatus('en_attente')">En attente</a>
+                            <a class="dropdown-item" onclick="filterByStatus('en_cours')">En cours</a>
+                            <a class="dropdown-item" onclick="filterByStatus('livree')">Livrée</a>
+                            <a class="dropdown-item" onclick="filterByStatus('annulee')">Annulée</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-count" id="orderCount"></div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Client</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Montant (FCFA)</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DÉTAILS COMMANDE -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Détails de la commande</h3>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="./js/commandes.js"></script>
+</body>
+</html>

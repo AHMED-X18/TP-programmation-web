@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Catégories - Admin AllSports</title>
+    <link rel="stylesheet" href="./css/categories.css">
+</head>
+<body onload="checkAuth(); loadCategories();">
+
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">AllSports</a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    Voir le site
+                </a>
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Admin</span>
+                        <span class="admin-email">admin@allsports.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1>Gestion des Catégories</h1>
+                    <p class="page-subtitle">Organisez vos produits</p>
+                </div>
+                <button class="btn" onclick="openAddModal()">
+                    Nouvelle catégorie
+                </button>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalCategories">0</div>
+                    <div class="stat-label">Toutes catégories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalProducts">0</div>
+                    <div class="stat-label">Produits catégorisés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="popularCategory">-</div>
+                    <div class="stat-label">Catégorie populaire</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="emptyCategories">0</div>
+                    <div class="stat-label">Sans produits</div>
+                </div>
+            </div>
+
+            <!-- Options d'affichage -->
+            <div class="view-options">
+                <button class="view-btn active" onclick="switchView('all')">Liste</button>
+                <button class="view-btn" onclick="switchView('empty')">Catégories sans produit</button>
+            </div>
+
+            <!-- Grille catégories -->
+            <div id="categoriesGrid" class="categories-grid"></div>
+
+            <!-- Section vide -->
+            <div id="emptySection" class="empty-section" style="display:none;">
+                <h3>Aucune catégorie trouvée</h3>
+                <p>Créez votre première catégorie pour organiser vos produits.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Ajout/Édition -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Nouvelle catégorie</h3>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <form id="categoryForm">
+                <input type="hidden" id="categoryId">
+                <div class="form-row">
+                    <label for="categoryName">Nom *</label>
+                    <input type="text" id="categoryName" required>
+                </div>
+                <div class="form-row">
+                    <label for="categoryDesc">Description</label>
+                    <textarea id="categoryDesc" rows="3"></textarea>
+                </div>
+                <div style="text-align: right; margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="btn">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Suppression -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmer</h3>
+                <button class="close-modal" onclick="closeDeleteModal()">×</button>
+            </div>
+            <p>Supprimer la catégorie "<span id="deleteName"></span>" ?</p>
+            <p class="warning-text" id="deleteWarning"></p>
+            <div style="text-align: right; margin-top: 1rem;">
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">Annuler</button>
+                <button class="btn btn-danger" onclick="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/categories.js"></script>
+</body>
+</html>

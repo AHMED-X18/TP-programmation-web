@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Admin AllSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/tableau de bord.css">
+</head>
+<body onload="checkAuth(); loadDashboard();">
+
+    <header>
+        <div class="header-content">
+            <!-- Gauche : Logo + Badge -->
+            <div>
+                <a href="index.html" class="logo">AllSports</a>
+                <span class="admin-badge">Admin</span>
+            </div>
+
+            <!-- Droite : Boutons + Infos (ordonnés) -->
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    Voir le site
+                </a>
+
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Admin</span>
+                        <span class="admin-email">admin@allsports.com</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-danger" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Tableau de Bord</h1>
+                <p class="page-subtitle">Aperçu général de votre boutique AllSports</p>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <!-- Statistiques -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Statistiques Globales</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalRevenue">0 CFA</div>
+                        <div class="stat-label">Chiffre d'affaires</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalOrders">0</div>
+                        <div class="stat-label">Commandes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalCustomers">0</div>
+                        <div class="stat-label">Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalProducts">0</div>
+                        <div class="stat-label">Produits</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commandes récentes -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1rem; color: #1e3a8a;">Commandes Récentes</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Client</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrders"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Alertes stock -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1rem; color: #1e3a8a;">Alerte Stock</h2>
+                <div id="stockAlerts"></div>
+            </div>
+
+            <!-- Actions rapides -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Actions Rapides</h2>
+                <div class="quick-actions">
+                    <a href="gestion-produits.html" class="action-btn">Gestion des produits</a>
+                    <a href="admin-commandes.html" class="action-btn">Voir les commandes</a>
+                    <a href="admin-clients.html" class="action-btn">Gérer les clients</a>
+                    <a href="admin-categories.html" class="action-btn">Gérer catégories</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/tableau de bord.js"></script>
+</body>
+</html>

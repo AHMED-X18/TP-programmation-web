@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Produits - Admin AllSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/produits.css">
+</head>
+<body onload="checkAuth(); displayProducts();">
+
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">AllSports</a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">
+                    Voir le site
+                </a>
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Admin</span>
+                        <span class="admin-email">admin@allsports.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Titre + Bouton Ajouter EN HAUT -->
+            <div class="page-header">
+                <div>
+                    <h1>Gestion des Produits</h1>
+                    <p class="page-subtitle">Gérez votre catalogue AllSports</p>
+                </div>
+                <button class="btn" onclick="goToAddForm()">
+                    Ajouter un produit
+                </button>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <!-- Produits plus vendus -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Produits plus vendus</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Prix (FCFA)</th>
+                                <th>Stock</th>
+                                <th>Ventes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bestSellersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Options de filtrage -->
+            <div class="content-section">
+                <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Liste des produits</h2>
+                
+                <div class="filters-section">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="filterProducts()">
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-btn" onclick="toggleDropdown('categoryDropdown')">
+                            <span id="categoryText">Toute catégorie</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="categoryDropdown" class="dropdown-content">
+                            <a class="dropdown-item" onclick="filterByCategory('all')">Toute catégorie</a>
+                            <a class="dropdown-item" onclick="filterByCategory('Femmes')">Femmes</a>
+                            <a class="dropdown-item" onclick="filterByCategory('Hommes')">Hommes</a>
+                            <a class="dropdown-item" onclick="filterByCategory('Matériel')">Matériel</a>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-btn" onclick="toggleDropdown('stockDropdown')">
+                            <span id="stockText">Tous les stocks</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="stockDropdown" class="dropdown-content">
+                            <a class="dropdown-item" onclick="filterByStock('all')">Tous les stocks</a>
+                            <a class="dropdown-item" onclick="filterByStock('inStock')">En stock</a>
+                            <a class="dropdown-item" onclick="filterByStock('lowStock')">Stock faible</a>
+                            <a class="dropdown-item" onclick="filterByStock('outOfStock')">En rupture</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-options">
+                    <button id="listViewBtn" class="btn btn-outline active" onclick="setViewMode('list')">
+                        <i class="fas fa-list"></i> Liste
+                    </button>
+                </div>
+                
+                <div class="product-count" id="productCount"></div>
+                
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Prix (FCFA)</th>
+                                <th>Stock</th>
+                                <th>Ventes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Formulaire d'ajout EN BAS -->
+            <div id="addForm" class="form-container">
+                <h3 style="margin-bottom: 1.5rem; color: #1e3a8a;">Nouveau produit</h3>
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+                    <div class="form-row">
+                        <div>
+                            <label for="productName">Nom du produit *</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        <div>
+                            <label for="productCategory">Catégorie *</label>
+                            <select id="productCategory" required>
+                                <option value="">Choisir...</option>
+                                <option value="Femmes">Femmes</option>
+                                <option value="Hommes">Hommes</option>
+                                <option value="Matériel">Matériel</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label for="productPrice">Prix (FCFA) *</label>
+                            <input type="number" id="productPrice" min="0" required>
+                        </div>
+                        <div>
+                            <label for="productStock">Stock</label>
+                            <input type="number" id="productStock" min="0" value="0">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription"></textarea>
+                    </div>
+                    <div style="margin-top: 1.5rem; text-align: right;">
+                        <button type="button" class="btn btn-secondary" onclick="toggleAddForm()">Annuler</button>
+                        <button type="submit" class="btn" id="submitButton">
+                            Enregistrer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmer la suppression</h3>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.</p>
+                <p id="productToDeleteName" style="font-weight: bold; margin-top: 0.5rem;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">Non</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Oui, supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/produits.js"></script>
+</body>
+</html>
