@@ -68,7 +68,7 @@ cd TP-programmation-web
 - Renseigner vos paramètres email (`MAIL_MAILER`, `MAIL_HOST`, etc.)
 - Renseigner l’URL de l’API du CMS (`CMS_API_URL`).
 
-### 4. Initialisation DB
+### 4. Initialisation Base de donnees
 ```bash
 php artisan key:generate
 php artisan migrate
@@ -86,8 +86,16 @@ php artisan serve
 
 ## Auteur
 
-Projet proposé par AHMED-X18.
-
+ATCHINE OUDAM HANNIEL 22P590 hanniel05
+NZUNGANG MBOUM FREDDY LIONEL 22P437 Zouzou237
+AKOULOUZE MANY EVA FÉLICIA 22P508 AkoulouzeMany
+TCHAPET NGAMINI ROLAIN 22P608 ROLAINTCHAPET 
+NBEUYO KOLOGNE ULRICH MARTEL 22P204  Ulrich ou Manitou
+AKOULOUZE JAMALI AMINA WENDY 22p340 Amina-Akoulouze
+OWONA NGUINI MATTEO JORDAN 22p540 Mattow-15
+NJEMPOU YAMPEN 22p569 rouchdayampen
+FEZE DJOUMESSI FRED 22P334 demuto21
+AHMED JALIL TADIDA D.  22P265 AHMED-X18
 ---
 
 Ce README couvre la structure et objectifs. Les détails techniques sont dans le code et la documentation Laravel.
