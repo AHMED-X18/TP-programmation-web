@@ -65,10 +65,7 @@ cd TP-programmation-web
     ```bash
     composer install
     ```
-- Frontend (JS) :
-    ```bash
-    npm install
-    ```
+- Frontend : HTML, CSS, JS
 
 ### 3. Configuration
 - Copier `.env.example` vers `.env`.
