@@ -41,7 +41,7 @@ Le panier est géré via le fichier `boutique.js` :
 - **Backend** : [Laravel](https://laravel.com/) (PHP)
 - **Frontend** : HTML, CSS, JavaScript (gestion dynamique, validation formulaire)
 - **Base de données** : MySQL ou PostgreSQL (via Laravel Eloquent)
-- **CMS / API** : Intégration possible avec un CMS (ex. Strapi) via API REST pour gérer le contenu
+- **CMS / API** : Intégration possible avec un CMS via API REST pour gérer le contenu
 - **Emailing** : Envoi des confirmations via Laravel Mailer
 
 ## Installation et lancement
