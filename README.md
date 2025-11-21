@@ -79,10 +79,6 @@ php artisan migrate
 php artisan serve
 ```
 
-## Aide et contribution
-
-- Pour toute contribution, ouvrez une issue ou faites une pull-request.
-- Pour démo, consulter le badge du panier, interagir avec les boutons et formulaires d’ajout au panier.
 
 ## Auteur
 
