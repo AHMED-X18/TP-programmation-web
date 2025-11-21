@@ -2,6 +2,8 @@
 
 Ce projet est un exemple complet de site e-commerce développé dans le cadre d'un TP de programmation web. Il permet la vente en ligne de produits liés au sport (vêtements, électronique, accessoires), avec toutes les fonctionnalités essentielles.
 
+L’objectif principal du site est de permettre à toute personne de trouver et acheter facilement des articles sportifs en ligne, en profitant d’une navigation fluide, d’un panier interactif et d’un système de commandes entièrement géré.
+
 ## Objectifs du projet
 
 Développer une application de vente en ligne avec :
