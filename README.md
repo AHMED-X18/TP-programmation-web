@@ -1,119 +1,93 @@
-Projet : Site E-commerce "Sports AllShop"
-Il s'agit d'un projet de programmation web visant à développer un site e-commerce complet. Le site, nommé "Sports AllShop", permet la vente de produits organisés par catégories (vêtements, électronique, accessoires).
+# Sports AllShop – Site E-commerce
 
-Le projet inclut un catalogue de produits, un panier d'achat fonctionnel, un système de gestion des commandes, des clients et des produits, ainsi qu'une authentification.
+Ce projet est un exemple complet de site e-commerce développé dans le cadre d'un TP de programmation web. Il permet la vente en ligne de produits liés au sport (vêtements, électronique, accessoires), avec toutes les fonctionnalités essentielles.
 
-Fonctionnalités Principales
-Le site est divisé en deux parties principales : les fonctionnalités accessibles aux clients/visiteurs et le panneau de gestion pour les administrateurs.
+## Objectifs du projet
 
-Fonctionnalités Client / Visiteur
-Navigation : Les utilisateurs peuvent consulter la liste des produits et voir les détails sur une fiche produit dédiée.
+Développer une application de vente en ligne avec :
+- Un catalogue organisé par catégories.
+- Un panier d'achat dynamique et persistant entre les sessions.
+- Gestion des commandes et des clients.
+- Espace client pour l’historique et modification des infos.
+- Panneau d’administration pour la gestion des produits et commandes.
+- Authentification utilisateur (inscription/connexion).
+- Envoi de confirmation de commande par email.
 
-Filtrage : Les produits peuvent être filtrés par catégorie.
+## Fonctionnalités principales
 
-Authentification : Les utilisateurs peuvent s'inscrire et se connecter à leur compte.
+### Côté client / visiteur
+- Parcourir les produits par liste ou fiche détaillée.
+- Filtrer les produits par catégorie.
+- S’inscrire et se connecter à un compte.
+- Ajouter et retirer des articles du panier, mis à jour dynamiquement (JavaScript).
+- Calcul automatique du prix total.
+- Valider le panier, remplir un formulaire de commande (nom, email, adresse) avec validation et recevoir la confirmation par mail.
+- Consulter/modifier ses informations et accéder à l’historique des commandes.
 
-Panier d'achat :
+### Côté administrateur
+- Ajouter, modifier ou supprimer des produits (CRUD).
+- Superviser les commandes, visualiser leur état et changer le statut (ex : "traitée", "expédiée") dans un tableau de bord.
 
-Ajouter des produits au panier. Le panier est dynamique et mis à jour en JavaScript.
+## Logique du panier (front-end)
 
-Supprimer des produits du panier.
+Le panier est géré via le fichier `boutique.js` :
+- Stockage dans le localStorage du navigateur (`allSports_cart_v1`) pour une persistance entre sessions.
+- Fonctions exposées : `addToCart`, `loadCart`, `saveCart`.
+- Interface UI : badge du panier mis à jour en temps réel, boutons et formulaires associés.
+- Affichage de notifications "toast" pour confirmer les actions de l'utilisateur.
 
-Le prix total est calculé automatiquement.
+## Pile technologique
 
-Processus de Commande :
+- **Backend** : [Laravel](https://laravel.com/) (PHP)
+- **Frontend** : HTML, CSS, JavaScript (gestion dynamique, validation formulaire)
+- **Base de données** : MySQL ou PostgreSQL (via Laravel Eloquent)
+- **CMS / API** : Intégration possible avec un CMS (ex. Strapi) via API REST pour gérer le contenu
+- **Emailing** : Envoi des confirmations via Laravel Mailer
 
-Valider le panier.
+## Installation et lancement
 
-Remplir un formulaire de commande (nom, email, adresse) avec validation des champs.
-
-Valider la commande.
-
-Recevoir une confirmation de commande par email.
-
-Espace Client :
-
-Consulter et modifier les informations de profil.
-
-Consulter l'historique des commandes passées.
-
-Fonctionnalités Administrateur
-Gestion des Produits (CRUD) :
-
-Ajouter de nouveaux produits.
-
-Modifier les produits existants.
-
-Supprimer des produits.
-
-Gestion des Commandes :
-
-Accéder à un tableau de bord pour visualiser et suivre les commandes.
-
-Changer le statut d'une commande (ex: "traitée", "expédiée").
-
-Logique du Panier (côté client)
-Le fichier boutique.js gère l'interactivité du panier d'achat côté client :
-
-Stockage : Utilise le localStorage du navigateur (sous la clé allSports_cart_v1) pour conserver le panier entre les sessions.
-
-Fonctions : Expose des fonctions pour ajouter (addToCart), charger (loadCart), et sauvegarder (saveCart) le panier.
-
-Interface Utilisateur (UI) :
-
-Met à jour dynamiquement le badge du panier (.cart-badge) pour refléter la quantité totale d'articles.
-
-Gère les événements sur les boutons (.add-to-cart) et les formulaires (.add-to-cart-form) pour ajouter des produits.
-
-Affiche des notifications "toast" pour confirmer les actions de l'utilisateur.
-
-Pile Technologique
-Ce projet est construit en utilisant les technologies suivantes, comme défini dans les spécifications :
-
-Backend : Laravel (Framework PHP)
-
-Frontend : HTML, CSS, JavaScript (pour la validation et la gestion dynamique du panier)
-
-Base de données : MySQL ou PostgreSQL (gérée via Laravel Eloquent)
-
-CMS / API : Intégration avec un CMS (ex: Strapi) via API REST pour la gestion du contenu des produits.
-
-Emailing : Laravel Mailer (pour l'envoi des confirmations de commande)
-Installation et Lancement (Exemple)
-Cloner le dépôt :
-
-Bash
-
+### 1. Cloner le dépôt
+```bash
 git clone [URL_DU_DEPOT]
 cd TP-programmation-web
-Installer les dépendances Backend (PHP) :
+```
 
-Bash
+### 2. Installer les dépendances
+- Backend (PHP) :
+    ```bash
+    composer install
+    ```
+- Frontend (JS) :
+    ```bash
+    npm install
+    ```
 
-composer install
-Installer les dépendances Frontend (JS) :
+### 3. Configuration
+- Copier `.env.example` vers `.env`.
+- Renseigner vos identifiants de base de données (`DB_HOST`, `DB_DATABASE`, etc.)
+- Renseigner vos paramètres email (`MAIL_MAILER`, `MAIL_HOST`, etc.)
+- Renseigner l’URL de l’API du CMS (`CMS_API_URL`).
 
-Bash
-
-npm install
-Configuration :
-
-Copiez .env.example vers .env.
-
-Configurez vos identifiants de base de données (DB_HOST, DB_DATABASE, etc.).
-
-Configurez votre service d'email (MAIL_MAILER, MAIL_HOST, etc.).
-
-Configurez l'URL de l'API de votre CMS (CMS_API_URL).
-
-Base de données :
-
-Bash
-
+### 4. Initialisation DB
+```bash
 php artisan key:generate
 php artisan migrate
-Lancer le serveur :
+```
 
-Bash
-
+### 5. Lancer le serveur Laravel
+```bash
 php artisan serve
+```
+
+## Aide et contribution
+
+- Pour toute contribution, ouvrez une issue ou faites une pull-request.
+- Pour démo, consulter le badge du panier, interagir avec les boutons et formulaires d’ajout au panier.
+
+## Auteur
+
+Projet proposé par AHMED-X18.
+
+---
+
+Ce README couvre la structure et objectifs. Les détails techniques sont dans le code et la documentation Laravel.
