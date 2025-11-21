@@ -1,8 +1,29 @@
 # Sports AllShop – Site E-commerce
 
-Ce projet est un exemple complet de site e-commerce développé dans le cadre d'un TP de programmation web. Il permet la vente en ligne de produits liés au sport (vêtements, électronique, accessoires), avec toutes les fonctionnalités essentielles.
+Ce projet est un exemple complet de site e-commerce développé dans le cadre d'un TP de programmation web. Il permet la vente en ligne de produits liés au sport (vêtements, électronique, accessoires…).
 
-L’objectif principal du site est de permettre à toute personne de trouver et acheter facilement des articles sportifs en ligne, en profitant d’une navigation fluide, d’un panier interactif et d’un système de commandes entièrement géré.
+L’objectif principal du site est de permettre à toute personne de trouver et acheter facilement des articles sportifs en ligne, en profitant d’une navigation fluide, d’un panier interactif et d’une gestion sécurisée des commandes.
+
+## Ce que fait le site (Résumé des fonctionnalités)
+
+| Fonctionnalité                                    | Description détaillée                                                                                                        |
+|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Catalogue par catégories                          | Présentation des produits répartis en catégories pour une navigation rapide et intuitive                                     |
+| Fiches produits complètes                         | Détail des caractéristiques (photo, prix, description…), filtres par catégorie                                              |
+| Ajout d’articles au panier                        | Sélection d’articles, ajout et retrait dynamique, affichage du montant total                                                |
+| Panier persistant                                 | Stockage du panier en localStorage pour conserver les sélections entre les sessions utilisateur                             |
+| Modification du panier                            | Possibilité de modifier les quantités ou de retirer chaque article, avec interface réactive                                 |
+| Validation du panier                              | Formulaire complet de commande (nom, email, adresse…), validation et confirmation par email                                 |
+| Espace utilisateur                                | Visualisation et modification des infos personnelles, accès à l’historique des commandes                                    |
+| Authentification                                 | Inscription et connexion sécurisées, gestion des sessions utilisateurs                                                      |
+| Suivi des commandes                              | Visualisation de l’état des commandes passées (en cours, expédiées…)                                                        |
+| Administration                                    | Tableau de bord pour ajouter/éditer/supprimer produits, surveiller les commandes et gérer les utilisateurs                  |
+| Gestion des utilisateurs                          | Possibilité pour les administrateurs de voir, modifier ou supprimer les comptes clients                                     |
+| Sécurisation et validation                        | Validation côté client et serveur, contrôle des accès, sécurisation des transactions et des données                        |
+| Notifications dynamiques                          | Toasts et messages de confirmation ou d’erreur lors des actions (ajout au panier, commande, authentification…)             |
+| Envoi automatique d’emails                        | Notification automatique à la confirmation d’une commande                                                                  |
+| Design responsive                                 | Interface adaptée à tous les supports (PC, mobile, tablette)                                                               |
+| Technologie moderne                               | Front-end en HTML/CSS/JS, back-end en PHP Laravel, base de données relationnelle                                            |
 
 ## Objectifs du projet
 
@@ -14,28 +35,6 @@ Développer une application de vente en ligne avec :
 - Panneau d’administration pour la gestion des produits et commandes.
 - Authentification utilisateur (inscription/connexion).
 - Envoi de confirmation de commande par email.
-
-## Fonctionnalités principales
-
-- **Présentation d’un catalogue** organisé par catégories, permettant de parcourir facilement les produits et de lire leurs caractéristiques détaillées.
-- **Ajout d’articles au panier** : Les utilisateurs peuvent sélectionner des articles, les ajouter ou les retirer de leur panier, voir le montant total et modifier leurs choix avant de passer commande.
-- **Espace utilisateur** : Chaque client possède son propre espace pour visualiser ses commandes, consulter et modifier ses informations personnelles.
-- **Gestion des commandes** : Validation du panier via un formulaire complet, envoi d’une confirmation par email, suivi et historique des achats.
-- **Administration avancée** : Les administrateurs peuvent ajouter ou modifier les produits du catalogue, superviser l’état des commandes et gérer les utilisateurs.
-- **Sécurisation** : Authentification, gestion des comptes, validation de données et sécurité côté serveur.
-
-### Côté client / visiteur
-- Parcourir les produits par liste ou fiche détaillée.
-- Filtrer les produits par catégorie.
-- S’inscrire et se connecter à un compte.
-- Ajouter et retirer des articles du panier, mis à jour dynamiquement (JavaScript).
-- Calcul automatique du prix total.
-- Valider le panier, remplir un formulaire de commande (nom, email, adresse) avec validation et recevoir la confirmation par mail.
-- Consulter/modifier ses informations et accéder à l’historique des commandes.
-
-### Côté administrateur
-- Ajouter, modifier ou supprimer des produits (CRUD).
-- Superviser les commandes, visualiser leur état et changer le statut (ex : "traitée", "expédiée") dans un tableau de bord.
 
 ## Logique du panier (front-end)
 
@@ -52,6 +51,7 @@ Le panier est géré via le fichier `boutique.js` :
 - PHP (Laravel) pour la partie serveur, gestion des données, envoi d’emails et sécurité.
 - Base de données relationnelle pour stocker produits, utilisateurs et commandes.
 - Envoi automatique de mails lors de la confirmation d’une commande.
+
 ## Installation et lancement
 
 ### 1. Cloner le dépôt
@@ -76,7 +76,7 @@ cd TP-programmation-web
 - Renseigner vos paramètres email (`MAIL_MAILER`, `MAIL_HOST`, etc.)
 - Renseigner l’URL de l’API du CMS (`CMS_API_URL`).
 
-### 4. Initialisation Base de donnees
+### 4. Initialisation Base de données
 ```bash
 php artisan key:generate
 php artisan migrate
@@ -87,18 +87,21 @@ php artisan migrate
 php artisan serve
 ```
 
+## Auteurs du projet
 
-## Auteur
+| Nom complet                              | Matricule   | Identifiant GitHub      |
+|------------------------------------------|-------------|-------------------------|
+| ATCHINE OUDAM HANNIEL                   | 22P590      | hanniel05               |
+| NZUNGANG MBOUM FREDDY LIONEL            | 22P437      | Zouzou237               |
+| AKOULOUZE MANY EVA FÉLICIA              | 22P508      | AkoulouzeMany           |
+| TCHAPET NGAMINI ROLAIN                  | 22P608      | ROLAINTCHAPET           |
+| NBEUYO KOLOGNE ULRICH MARTEL            | 22P204      | Ulrich ou Manitou       |
+| AKOULOUZE JAMALI AMINA WENDY            | 22p340      | Amina-Akoulouze         |
+| OWONA NGUINI MATTEO JORDAN              | 22p540      | Mattow-15               |
+| NJEMPOU YAMPEN                          | 22p569      | rouchdayampen           |
+| FEZE DJOUMESSI FRED                     | 22P334      | demuto21                |
+| AHMED JALIL TADIDA D.                   | 22P265      | AHMED-X18               |
+| ESSONO FLORA                            | 22P289      | flora-1141              |
 
-ATCHINE OUDAM HANNIEL 22P590 hanniel05
-NZUNGANG MBOUM FREDDY LIONEL 22P437 Zouzou237
-AKOULOUZE MANY EVA FÉLICIA 22P508 AkoulouzeMany
-TCHAPET NGAMINI ROLAIN 22P608 ROLAINTCHAPET 
-NBEUYO KOLOGNE ULRICH MARTEL 22P204  Ulrich ou Manitou
-AKOULOUZE JAMALI AMINA WENDY 22p340 Amina-Akoulouze
-OWONA NGUINI MATTEO JORDAN 22p540 Mattow-15
-NJEMPOU YAMPEN 22p569 rouchdayampen
-FEZE DJOUMESSI FRED 22P334 demuto21
-AHMED JALIL TADIDA D.  22P265 AHMED-X18
-ESSONO FLORA 22P289 flora-1141
 ---
+
