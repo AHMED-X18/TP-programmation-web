@@ -15,6 +15,13 @@ Développer une application de vente en ligne avec :
 
 ## Fonctionnalités principales
 
+- **Présentation d’un catalogue** organisé par catégories, permettant de parcourir facilement les produits et de lire leurs caractéristiques détaillées.
+- **Ajout d’articles au panier** : Les utilisateurs peuvent sélectionner des articles, les ajouter ou les retirer de leur panier, voir le montant total et modifier leurs choix avant de passer commande.
+- **Espace utilisateur** : Chaque client possède son propre espace pour visualiser ses commandes, consulter et modifier ses informations personnelles.
+- **Gestion des commandes** : Validation du panier via un formulaire complet, envoi d’une confirmation par email, suivi et historique des achats.
+- **Administration avancée** : Les administrateurs peuvent ajouter ou modifier les produits du catalogue, superviser l’état des commandes et gérer les utilisateurs.
+- **Sécurisation** : Authentification, gestion des comptes, validation de données et sécurité côté serveur.
+
 ### Côté client / visiteur
 - Parcourir les produits par liste ou fiche détaillée.
 - Filtrer les produits par catégorie.
