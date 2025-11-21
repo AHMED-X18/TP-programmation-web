@@ -92,13 +92,13 @@ php artisan serve
 | NZUNGANG MBOUM FREDDY LIONEL            | 22P437      | Zouzou237               |
 | AKOULOUZE MANY EVA FÉLICIA              | 22P508      | AkoulouzeMany           |
 | TCHAPET NGAMINI ROLAIN                  | 22P608      | ROLAINTCHAPET           |
-| NBEUYO KOLOGNE ULRICH MARTEL            | 22P204      | Ulrich ou Manitou       |
+| NBEUYO KOLOGNE ULRICH MARTEL            | 22P204      | ulrich675     |
 | AKOULOUZE JAMALI AMINA WENDY            | 22p340      | Amina-Akoulouze         |
 | OWONA NGUINI MATTEO JORDAN              | 22p540      | Mattow-15               |
 | NJEMPOU YAMPEN                          | 22p569      | rouchdayampen           |
 | FEZE DJOUMESSI FRED                     | 22P334      | demuto21                |
 | AHMED JALIL TADIDA D.                   | 22P265      | AHMED-X18               |
-| ESSONO FLORA                            | 22P289      | flora-1141              |
+| ESSONO SANDRINE FLORA                            | 22P289      | flora-1141              |
 
 ---
 
