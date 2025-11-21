@@ -45,12 +45,11 @@ Le panier est géré via le fichier `boutique.js` :
 
 ## Pile technologique
 
-- **Backend** : [Laravel](https://laravel.com/) (PHP)
-- **Frontend** : HTML, CSS, JavaScript (gestion dynamique, validation formulaire)
-- **Base de données** : MySQL ou PostgreSQL (via Laravel Eloquent)
-- **CMS / API** : Intégration possible avec un CMS via API REST pour gérer le contenu
-- **Emailing** : Envoi des confirmations via Laravel Mailer
-
+- HTML/CSS pour la mise en page et le design responsive.
+- JavaScript pour le dynamisme du panier et la validation côté client.
+- PHP (Laravel) pour la partie serveur, gestion des données, envoi d’emails et sécurité.
+- Base de données relationnelle pour stocker produits, utilisateurs et commandes.
+- Envoi automatique de mails lors de la confirmation d’une commande.
 ## Installation et lancement
 
 ### 1. Cloner le dépôt
