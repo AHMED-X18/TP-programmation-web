@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Produit - AllSports</title>
+    <meta name="description" content="Détails dynamiques du produit">
+    <link rel="stylesheet" href="../../style/boutique_css/reste.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">AllSports</a>
+            
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="shop.html" class="active">Boutique</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" placeholder="Rechercher...">
+                </div>
+                
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <a href="shop.html" class="back-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Retour à la boutique
+            </a>
+
+            <div class="product-grid">
+                <div>
+                    <img src="" alt="Image du produit" class="product-detail-image" id="product-image">
+                </div>
+
+                <div class="product-info">
+                    <h1 id="product-name">Nom du Produit (Chargement...)</h1>
+                    
+                    <p class="card-price" style="font-size: 2rem; margin-bottom: 1rem;" id="product-price">0 CFA</p>
+                    
+                    <p style="color: #6b7280; font-size: 1.125rem; margin-bottom: 2rem;" id="product-description-short">
+                        Description courte du produit. (Chargement...)
+                    </p>
+
+                    <div class="detail-card">
+                        <h3 id="product-description-long">Description complète et détaillée</h3>
+                        
+                        <div>
+                            <span class="detail-label">Tailles disponibles :</span>
+                            <div id="detail-tailles" style="margin-bottom: 1rem;">
+                                </div>
+                        </div>
+
+                        <div>
+                            <span class="detail-label">Couleurs disponibles :</span>
+                            <div id="detail-couleurs" style="margin-bottom: 1rem;">
+                                </div>
+                        </div>
+
+                        <div>
+                            <span class="detail-label">Matériel :</span>
+                            <p class="detail-value" id="detail-materiel">N/A</p>
+                        </div>
+
+                        <div>
+                            <span class="detail-label">Date de fabrication :</span>
+                            <p class="detail-value" id="detail-fabrication">N/A</p>
+                        </div>
+                    </div>
+
+                    <button class="btn" style="width: 100%; justify-content: center; font-size: 1.125rem; margin-top: 1.5rem;" onclick="alert('Produit ajouté au panier !')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Ajouter au panier
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="JS/products-data.js"></script> 
+    <script src="JS/product-detail.js"></script>
+
+</body>
+</html>
