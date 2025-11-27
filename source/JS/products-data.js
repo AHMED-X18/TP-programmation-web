@@ -394,4 +394,5 @@ const PRODUCTS_DATA = {
             fabrication: "Avril 2024"
         }
     }
+
 };
