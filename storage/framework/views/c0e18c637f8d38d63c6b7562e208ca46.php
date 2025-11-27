@@ -53,6 +53,7 @@
 <div class="order-count">Total : <?php echo e($commandes->count()); ?> commande(s)</div>
 
 <div class="content-section">
+    <div class="table-responsive">
     <table>
         <thead>
             <tr>
