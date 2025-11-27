@@ -396,3 +396,4 @@ const PRODUCTS_DATA = {
     }
 
 };
+
