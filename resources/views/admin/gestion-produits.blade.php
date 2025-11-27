@@ -20,6 +20,7 @@
 </div>
 
 <div class="content-section">
+    <div class="table-responsive">
     <h2 style="margin-bottom: 1.5rem; color: #1e3a8a;">Liste des produits</h2>
 
     <div class="filters-section">

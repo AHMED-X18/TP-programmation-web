@@ -1,3 +1,6 @@
+/* ============================================== */
+/* 🔹 RESET & BASE                                */
+/* ============================================== */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +14,10 @@ body {
     background-color: #ffffff;
 }
 
+
+/* ============================================== */
+/* 🔹 HEADER                                      */
+/* ============================================== */
 header {
     background-color: #f0f4ff;
     border-bottom: 1px solid #e5e7eb;
@@ -33,17 +40,16 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     color: #3b82f6;
-    text-decoration: none;
 }
 
 .admin-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
+    margin-left: 0.5rem;
     background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
     border-radius: 0.375rem;
     font-size: 0.875rem;
-    margin-left: 0.5rem;
+    color: #3b82f6;
     font-weight: 600;
 }
 
@@ -53,26 +59,34 @@ header {
     gap: 1rem;
 }
 
+
+/* ============================================== */
+/* 🔹 BUTTONS                                     */
+/* ============================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
     background-color: #3b82f6;
     color: white;
-    text-decoration: none;
-    border-radius: 0.5rem;
     font-weight: 600;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
     font-size: 0.875rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn:hover {
     background-color: #2563eb;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
 }
 
 .btn-secondary {
@@ -85,13 +99,8 @@ header {
     background-color: rgba(59, 130, 246, 0.1);
 }
 
-.btn-danger {
-    background-color: #ef4444;
-}
-
-.btn-danger:hover {
-    background-color: #dc2626;
-}
+.btn-danger { background-color: #ef4444; }
+.btn-danger:hover { background-color: #dc2626; }
 
 .btn-outline {
     background-color: transparent;
@@ -106,15 +115,31 @@ header {
 
 .btn-outline.active {
     background-color: #3b82f6;
-    color: white;
+    color: #fff;
     border-color: #3b82f6;
 }
 
-.btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+.btn-secondary-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
+.btn-secondary-outline:hover {
+    background-color: #f3f4f6;
+    color: #1e3a8a;
+}
+
+
+/* ============================================== */
+/* 🔹 ADMIN INFO                                  */
+/* ============================================== */
 .admin-info {
     display: flex;
     align-items: center;
@@ -122,7 +147,6 @@ header {
     padding: 0.5rem 1rem;
     background-color: rgba(59, 130, 246, 0.1);
     border-radius: 0.5rem;
-    min-width: 180px;
 }
 
 .admin-avatar {
@@ -130,34 +154,29 @@ header {
     height: 36px;
     background: #3b82f6;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
     color: white;
     font-size: 0.875rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .admin-details {
     display: flex;
     flex-direction: column;
-    text-align: left;
 }
 
-.admin-name {
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: #1e3a8a;
-}
+.admin-name { font-weight: 600; font-size: 0.875rem; }
+.admin-email { font-size: 0.75rem; color: #6b7280; }
 
-.admin-email {
-    font-size: 0.75rem;
-    color: #6b7280;
-}
 
+/* ============================================== */
+/* 🔹 PAGE LAYOUT                                 */
+/* ============================================== */
 .container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: auto;
     padding: 2rem;
 }
 
@@ -165,15 +184,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
-}
-
-.page-header h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #1e3a8a;
+    margin-bottom: 2rem;
 }
 
 .page-subtitle {
@@ -182,24 +195,28 @@ header {
 }
 
 .content-section {
-    background: white;
+    background: #fff;
     padding: 2rem;
     border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+
+/* ============================================== */
+/* 🔹 SEARCH & FILTERS                            */
+/* ============================================== */
 .filters-section {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1.5rem;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 }
 
 .search-box {
     flex: 1;
-    min-width: 250px;
     position: relative;
+    min-width: 250px;
 }
 
 .search-box input {
@@ -208,174 +225,126 @@ header {
 
 .search-icon {
     position: absolute;
-    left: 0.75rem;
     top: 50%;
+    left: 0.75rem;
     transform: translateY(-50%);
     color: #6b7280;
 }
 
+
+/* ============================================== */
+/* 🔹 DROPDOWN                                    */
+/* ============================================== */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropdown-btn {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
+    background: #fff;
+    color: #6b7280;
+    font-size: 0.875rem;
+    cursor: pointer;
     padding: 0.75rem 1rem;
-    background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-    color: #6b7280;
-    min-width: 150px;
-}
-
-.dropdown-btn:hover {
-    background-color: #f9fafb;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
     min-width: 200px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    z-index: 100;
     margin-top: 0.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
 }
 
-.dropdown-content.show {
-    display: block;
-}
+.dropdown-content.show { display: block; }
 
 .dropdown-item {
-    display: block;
     padding: 0.75rem 1rem;
-    text-decoration: none;
+    font-size: 0.875rem;
+    cursor: pointer;
     color: #6b7280;
     border-bottom: 1px solid #f3f4f6;
-    cursor: pointer;
-    font-size: 0.875rem;
 }
 
 .dropdown-item:hover {
-    background-color: #f9fafb;
+    background: #f9fafb;
     color: #1e3a8a;
 }
 
-.dropdown-item:last-child {
-    border-bottom: none;
-}
+.dropdown-item:last-child { border-bottom: none; }
 
+
+/* ============================================== */
+/* 🔹 TABLES                                      */
+/* ============================================== */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 th {
-    text-align: left;
     padding: 1rem;
+    background: rgba(59,130,246,0.05);
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 0.875rem;
     font-weight: 600;
     color: #1e3a8a;
-    font-size: 0.875rem;
-    border-bottom: 2px solid #e5e7eb;
-    background: rgba(59, 130, 246, 0.05);
+    text-align: left;
 }
 
 td {
     padding: 1rem;
-    border-bottom: 1px solid #e5e7eb;
     color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-tbody tr:hover {
-    background-color: rgba(59, 130, 246, 0.05);
-}
+tbody tr:hover { background: rgba(59,130,246,0.05); }
 
-.stock-low {
-    color: #f59e0b;
-    font-weight: 600;
-}
+.stock-low { color: #f59e0b; font-weight: 600; }
+.stock-out { color: #ef4444; font-weight: 600; }
+.actions-cell { display: flex; gap: 0.5rem; }
 
-.stock-out {
-    color: #ef4444;
-    font-weight: 600;
-}
 
-.actions-cell {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.form-container {
-    display: none;
-    background: #f8fafc;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    border: 1px solid #e5e7eb;
-    margin-top: 2rem;
-}
-
-.form-container.active {
-    display: block;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
+/* ============================================== */
+/* 🔹 FORM ELEMENTS                               */
+/* ============================================== */
 label {
-    display: block;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1e3a8a;
+    display: block;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     width: 100%;
     padding: 0.75rem;
-    /* Rendre la bordure plus claire par défaut */
-    border: 1px solid #d1d5db; 
-    border-radius: 0.5rem;
-    font-family: inherit;
-    color: #1e3a8a;
-    background-color: #ffffff; /* Fond blanc propre */
-    transition: all 0.3s ease; /* Ajouter une transition douce pour le focus/hover */
     font-size: 1rem;
+    background: #fff;
+    color: #1e3a8a;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: 0.3s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #3b82f6; /* Bordure bleue primaire */
-    /* Anneau de focus plus visible mais subtil */
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); 
-    background-color: #f9fafb; /* Léger fond sur focus */
+input:focus, select:focus, textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+    background: #f9fafb;
 }
 
-/* État de survol (Hover) */
-input:hover:not(:focus),
-select:hover:not(:focus),
-textarea:hover:not(:focus) {
-    border-color: #93c5fd; /* Bordure légèrement plus foncée au survol */
-}
+textarea { resize: vertical; min-height: 100px; }
 
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
 
+/* ============================================== */
+/* 🔹 ALERTS                                      */
+/* ============================================== */
 .alert {
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
@@ -383,73 +352,100 @@ textarea {
     display: none;
 }
 
-.alert.show {
-    display: block;
+.alert.show { display: block; }
+
+.alert-success { background: #d1fae5; color: #059669; border: 1px solid #a7f3d0; }
+.alert-info { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+.alert-warning { background: #fef3c7; color: #d97706; border: 1px solid #fcd34d; }
+
+
+/* ============================================== */
+/* 🔹 CREATE FORM SPECIFIC                        */
+/* ============================================== */
+.form-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.alert-success {
-    background: #d1fae5;
-    color: #059669;
-    border: 1px solid #a7f3d0;
+.form-container.hidden-default { display: none; }
+.form-container.hidden-default.active { display: block; }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 30px;
 }
 
-.alert-info {
-    background: #dbeafe;
-    color: #1d4ed8;
-    border: 1px solid #93c5fd;
+.form-group.full-width {
+    grid-column: 1 / -1;
 }
 
-.alert-warning {
-    background: #fef3c7;
-    color: #d97706;
-    border: 1px solid #fcd34d;
+.form-container .text-danger {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ef4444;
+    margin-top: 0.25rem;
 }
 
-#addForm {
-    scroll-margin-top: 100px;
+.file-upload-wrapper {
+    border: 2px dashed #d1d5db;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: #f9fafb;
+    text-align: center;
+    cursor: pointer;
 }
 
-/* Pour un scroll propre */
-.view-options {
+.file-upload-wrapper:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.form-actions {
+    margin-top: 30px;
+    gap: 10px;
+    padding-top: 20px;
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    justify-content: flex-end;
+    border-top: 1px solid #e5e7eb;
 }
 
-.product-count {
-    margin-bottom: 1rem;
-    color: #6b7280;
-    font-size: 0.875rem;
+.form-actions .btn-primary {
+    background: #1e3a8a;
+    color: #fff;
 }
 
+.form-actions .btn-primary:hover {
+    background: #1d4ed8;
+}
+
+
+/* ============================================== */
+/* 🔹 MODAL                                       */
+/* ============================================== */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: rgba(0,0,0,0.5);
     z-index: 2000;
     align-items: center;
     justify-content: center;
 }
 
-.modal.show {
-    display: flex;
-}
+.modal.show { display: flex; }
 
 .modal-content {
-    background: white;
+    background: #fff;
     padding: 2rem;
     border-radius: 0.75rem;
-    max-width: 500px;
     width: 90%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.modal-header {
-    margin-bottom: 1.5rem;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .modal-title {
@@ -458,9 +454,8 @@ textarea {
     color: #1e3a8a;
 }
 
-.modal-body {
-    margin-bottom: 1.5rem;
-}
+.modal-header { margin-bottom: 1.5rem; }
+.modal-body { margin-bottom: 1.5rem; }
 
 .modal-footer {
     display: flex;
@@ -468,6 +463,10 @@ textarea {
     gap: 1rem;
 }
 
+
+/* ============================================== */
+/* 🔹 RESPONSIVE                                  */
+/* ============================================== */
 @media (max-width: 768px) {
 
     .header-actions,
@@ -481,18 +480,11 @@ textarea {
         justify-content: center;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
     .filters-section {
         flex-direction: column;
     }
 
-    .dropdown {
-        width: 100%;
-    }
-
+    .dropdown,
     .dropdown-btn {
         width: 100%;
     }
@@ -500,152 +492,13 @@ textarea {
     .actions-cell {
         flex-direction: column;
     }
-    /* ================================================================= */
-/* 1. STYLES SPÉCIFIQUES POUR LE FORMULAIRE (pour le rendre plus beau) */
-/* Utilise .form-container pour augmenter la spécificité */
-/* ================================================================= */
 
-.form-container {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e5e7eb;
-    margin-top: 2rem;
-    display: block; /* S'assurer qu'il est visible */
-}
-
-/* --- Grille et Layout (Correspondant à form-grid et full-width) --- */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes par défaut */
-    gap: 25px 30px; /* Espace entre les champs */
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1; /* Prend toute la largeur, de la première à la dernière colonne */
-}
-
-/* --- Labels et Texte d'Aide --- */
-.form-container label {
-    display: block;
-    font-weight: 700; 
-    margin-bottom: 0.4rem; 
-    color: #1e3a8a; /* Bleu foncé pour les labels */
-    font-size: 0.95rem; 
-}
-
-.form-container .text-danger {
-    color: #ef4444; /* Rouge pour les erreurs */
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-top: 0.25rem;
-    display: block;
-}
-
-/* --- Champs de Saisie (Inputs, Selects, Textareas) --- */
-.form-container input:not([type="checkbox"]):not([type="radio"]),
-.form-container select,
-.form-container textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db; 
-    border-radius: 0.5rem;
-    font-family: inherit;
-    color: #1f2937; /* Texte gris foncé */
-    background-color: #ffffff;
-    transition: all 0.3s ease; 
-    font-size: 1rem;
-}
-
-/* État de focus (visuel professionnel) */
-.form-container input:focus,
-.form-container select:focus,
-.form-container textarea:focus {
-    outline: none;
-    border-color: #3b82f6; /* Bordure bleue primaire */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Anneau de focus */
-    background-color: #f9fafb;
-}
-
-/* État de survol */
-.form-container input:hover:not(:focus),
-.form-container select:hover:not(:focus),
-.form-container textarea:hover:not(:focus) {
-    border-color: #93c5fd; 
-}
-
-.form-container textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* --- Section Actions du Formulaire --- */
-.form-actions {
-    margin-top: 30px;
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    padding-top: 20px;
-    border-top: 1px solid #e5e7eb; 
-}
-
-/* --- Styles des Boutons Spécifiques au Formulaire --- */
-.btn-primary {
-    /* Assurez-vous que vos styles de bouton principaux sont bien définis ici ou dans admin.css */
-    /* Exemple: */
-    background-color: #1e3a8a;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    font-weight: 600;
-}
-.btn-primary:hover {
-    background-color: #1d4ed8;
-}
-
-.btn-secondary-outline {
-    background-color: transparent;
-    color: #4b5563;
-    border: 1px solid #d1d5db;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 600;
-}
-.btn-secondary-outline:hover {
-    background-color: #f3f4f6;
-    color: #1e3a8a;
-    border-color: #a1a1aa;
-}
-
-
-/* ================================================================= */
-/* 2. Responsive (Pour les petits écrans) */
-/* ================================================================= */
-
-@media (max-width: 768px) {
     .form-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-    }
-    /* Les champs full-width ne nécessitent plus de traitement spécial ici */
-    .form-group.full-width {
-        grid-column: auto;
+        grid-template-columns: 1fr;
     }
 
     .form-actions {
         flex-direction: column;
         align-items: stretch;
     }
-    .form-actions .btn {
-        width: 100%;
-        margin-top: 5px;
-    }
-}
 }

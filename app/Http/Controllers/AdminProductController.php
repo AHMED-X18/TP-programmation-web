@@ -7,6 +7,7 @@ use App\Models\Produit;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminProductController extends Controller
 {
@@ -14,32 +15,46 @@ class AdminProductController extends Controller
     /**
      * 11. Ajouter un produit
      */
-    public function create()
+ public function create()
     {
-return view('admin.produit-create');    }
+        return view('admin.produit-create');
+    }
 
     public function store(Request $request)
     {
+        // 1. Validation
         $request->validate([
             'nom' => 'required|string|max:150',
             'description' => 'nullable|string',
             'prix' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'image_url' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', 
             'categorie' => 'nullable|string|max:100',
         ]);
 
+        $imagePath = null;
+
+        // 2. Gestion de l'upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('produits', 'public');
+            
+            // On ajoute '/storage/' pour que le lien soit accessible publiquement
+            $imagePath = '/storage/' . $path;
+        }
+
+        // 3. Création en base de données
         Produit::create([
             'nom' => $request->nom,
             'description' => $request->description,
             'prix' => $request->prix,
             'stock' => $request->stock,
-            'image_url' => $request->image_url,
+            'image_url' => $imagePath, // On sauvegarde le chemin généré
             'categorie' => $request->categorie,
             'id_admin' => Auth::guard('admin')->id(),
         ]);
 
-        return redirect()->route('admin.produits.index')->with('success', 'Produit ajouté avec succès.');
+        return redirect()->route('admin.produits.index')
+                         ->with('success', 'Produit ajouté avec succès.');
     }
 
     /**

@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section('title', 'Ajouter un Produit')
 
-
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
 @section('content')
 <div class="page-header">
     <div>
@@ -16,8 +17,8 @@
 
 <div class="content-section">
     {{-- Le formulaire cible la méthode store du contrôleur AdminProductController --}}
-    <form action="{{ route('admin.produits.store') }}" method="POST" class="form-container">
-        @csrf
+<form action="{{ route('admin.produits.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
         
         <div class="form-grid">
             
@@ -40,9 +41,11 @@
                 <label for="categorie">Catégorie *</label>
                 <select id="categorie" name="categorie" required>
                     <option value="">Sélectionner une catégorie</option>
-                    <option value="Femmes" {{ old('categorie') == 'Football' ? 'selected' : '' }}>Football</option>
-                    <option value="Hommes" {{ old('categorie') == 'Hommes' ? 'selected' : '' }}>Hommes</option>
-                    <option value="Matériel" {{ old('categorie') == 'Matériel' ? 'selected' : '' }}>Matériel</option>
+                    <option value="Football" {{ old('categorie') == 'Football' ? 'selected' : '' }}>Football</option>
+                    <option value="Basketball" {{ old('categorie') == 'Basketball' ? 'selected' : '' }}>Basketball</option>
+                    <option value="Accessoires" {{ old('categorie') == 'Accessoires' ? 'selected' : '' }}>Accessoires</option>
+                    <option value="Tennis" {{ old('categorie') == 'Tennis' ? 'selected' : '' }}>Tennis</option>
+                    <option value="Smartphones" {{ old('categorie') == 'Smartphones' ? 'selected' : '' }}>Smartphones</option>
                 </select>
                 @error('categorie') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -54,11 +57,10 @@
                 @error('stock') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             
-            {{-- Image URL (Image URL is assumed to take full width for better display) --}}
-            <div class="form-group full-width">
-                <label for="image_url">URL de l'Image du Produit</label>
-                <input type="url" id="image_url" name="image_url" value="{{ old('image_url') }}">
-                @error('image_url') <span class="text-danger">{{ $message }}</span> @enderror
+           <div class="form-group full-width">
+                <label for="image">Image du produit</label>
+                <input type="file" name="image" id="image">
+                <small style="color: #666;">Formats acceptés : jpg, jpeg, png, webp (Max 2Mo)</small>
             </div>
 
             {{-- Description (Description takes full width) --}}
@@ -78,4 +80,22 @@
         </div>
     </form>
 </div>
+<script>
+    // Petit script pour afficher l'aperçu de l'image
+    function previewImage(input) {
+        const previewContainer = document.getElementById('image-preview');
+        const previewImg = document.getElementById('preview-img');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                previewContainer.classList.remove('hidden');
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @endsection
