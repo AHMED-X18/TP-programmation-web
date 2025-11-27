@@ -61,4 +61,5 @@ function loadProductDetails() {
 }
 
 // Exécuter la fonction une fois que le DOM est complètement chargé
+
 document.addEventListener('DOMContentLoaded', loadProductDetails);
