@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - AllSports</title>
+    <meta name="description" content="Explorez nos catégories de produits sportifs">
+    <link rel="stylesheet" href="../../style/boutique_css/reste.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">AllSports</a>
+            
+            <nav>
+                <a href="../accueil.html">Accueil</a>
+                <a href="#" class="active">Boutique</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" placeholder="Rechercher...">
+                </div>
+                
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="section">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h1 class="section-title">Notre Boutique</h1>
+                <p style="font-size: 1.125rem; color: #6b7280; max-width: 800px; margin: 0 auto;">
+                    Découvrez nos collections de vêtements et équipements de sport pour tous
+                </p>
+            </div>
+
+            <div class="grid grid-3" style="max-width: 1200px; margin: 2rem auto;">
+                <!-- Catégorie Femmes -->
+                <a href="femmes.html" class="card">
+                    <div class="card-image-wrapper">
+                        <img src="../../images/presentationfemme.jpg" alt="Femmes" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2>Femmes</h2>
+                        <p>Découvrez notre collection de vêtements et accessoires de sport pour femmes</p>
+                        <div style="color: #3b82f6; font-weight: 600; display: flex; align-items: center;">
+                            Découvrir
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Catégorie Hommes -->
+                <a href="hommes.html" class="card">
+                    <div class="card-image-wrapper">
+                        <img src="../../images/presentationhomme.jpg" alt="Hommes" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2>Hommes</h2>
+                        <p>Explorez notre gamme complète d'équipements sportifs pour hommes</p>
+                        <div style="color: #3b82f6; font-weight: 600; display: flex; align-items: center;">
+                            Découvrir
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Catégorie Matériel -->
+                <a href="materiel.html" class="card">
+                    <div class="card-image-wrapper">
+                        <img src="../../images/presentationmateriel.jpg" alt="Matériel de Sport" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2>Matériel de Sport</h2>
+                        <p>Équipez-vous avec notre sélection de matériel de sport de qualité</p>
+                        <div style="color: #3b82f6; font-weight: 600; display: flex; align-items: center;">
+                            Découvrir
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
