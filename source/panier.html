@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - AllSport</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style/panier_css/panier.css">
+    <script src="../../script/panier_js/panier.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <p class="logo">AllSport</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="../accueil.html">Accueil</a></li>
+                    <li><a href="../boutique_html/shop.html">Boutique</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+           
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">Panier</h1>
+
+        <!-- Empty Cart State -->
+        <div class="empty-cart">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2>Votre panier est vide</h2>
+            <a href="#" class="btn-primary">Continuer mes achats</a>
+        </div>
+
+        <!-- Cart with items (hidden, ready for future JS implementation) -->
+        <div class="cart-content">
+            <div class="cart-items">
+                <!-- Items will be added here by JavaScript -->
+            </div>
+
+            <div class="cart-summary">
+                <h2 class="summary-title">Récapitulatif</h2>
+                <div class="summary-row">
+                    <span>Sous-total</span>
+                    <span id="subtotal">0,00 €</span>
+                </div>
+                <div class="summary-row">
+                    <span>Livraison</span>
+                    <span id="shipping">Gratuite</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="total">0,00 €</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
+                    Valider le panier
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AllSport</h3>
+                    <p>Votre partenaire pour tous vos équipements sportifs. Performance et qualité garanties.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 AllSport. Tous droits réservés. |
+                   <a href="#">Mentions légales</a> |
+                   <a href="#">Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
