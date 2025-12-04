@@ -143,11 +143,6 @@ Snapshot de l'étape d'ajout du JavaScript.
 Version correspondant au rendu du TP4 Laravel.
 * **Framework** : Structure Laravel complète avec tests unitaires et fonctionnels (`tests/Feature/`).
 
-### 17. `d5f9f2ac...` (Main Snapshot)
-Branche principale agissant comme point de convergence.
-* **Intégration** : Rassemble les fichiers racines (`README.md`, `products-data.js`) et sert de base pour l'application globale.
-
-
 ## Objectifs du projet
 
 Développer une application de vente en ligne avec :
