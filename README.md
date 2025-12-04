@@ -25,6 +25,129 @@ L’objectif principal du site est de permettre à toute personne de trouver et 
 | Design responsive                                 | Interface adaptée à tous les supports (PC, mobile, tablette)                                                               |
 | Technologie moderne                               | Front-end en HTML/CSS/JS, back-end en PHP Laravel, base de données relationnelle                                            |
 
+# Organisation des Branches et Contenu
+
+Ce projet est structuré de manière rigoureuse pour séparer les environnements de production, de développement et les fonctionnalités individuelles. Voici le détail de l'architecture Git.
+
+## Branches Principales
+
+* **`main`** : Contient la version stable et finale du site. C'est le code validé, prêt à être déployé en production.
+* **`develop`** : Branche d'intégration où toutes les fonctionnalités sont rassemblées et testées avant d'être validées et fusionnées vers `main`.
+
+## Branches de Fonctionnalités (Features)
+
+Ces branches contiennent les fichiers spécifiques à chaque module du projet, respectant la séparation des responsabilités :
+
+### `feature/authentification`
+* **Contenu** : Pages de connexion et d'inscription (`login.html`), feuilles de styles associées (`login.css`), et diagrammes de flux (`Diagramme activiteSeconnecter.drawio`).
+* **Objectif** : Gestion sécurisée des accès utilisateurs et des inscriptions.
+
+### `feature/catalogue`
+* **Contenu** : Page d'accueil (`accueil.html`, `accueil.css`), base de données simulée des produits (`products-data.js`) et logique d'affichage dynamique des détails (`product-detail.js`).
+* **Objectif** : Présentation attractive des produits et navigation fluide dans le catalogue.
+
+### `feature/panier`
+* **Contenu** : Logique JavaScript du panier (`boutique.js`), persistance des données via `localStorage`, et algorithmes de calcul des totaux.
+* **Objectif** : Gestion complète du cycle d'achat côté client, de l'ajout au paiement.
+
+### `feature/documentation`
+* **Contenu** : Spécifications fonctionnelles (`SpecFonc_ProgWeb-2.pdf`), diagrammes UML globaux (`Cas_utilisation_Prog_Web.drawio`) et documentation technique.
+* **Objectif** : Centralisation de tous les documents de conception et de référence.
+
+---
+
+## Détail des Branches de Contribution (Implémentation)
+
+En complément de la structure logique ci-dessus, le développement a été réparti sur les branches suivantes, correspondant aux contributions spécifiques des membres de l'équipe :
+
+### 1. `FEZE-DJOUMESSI-FRED` (Backend & Admin Core)
+Cette branche contient le cœur du Backend Laravel et l'interface d'administration.
+* **Backend** : Structure complète Laravel (`app/`, `config/`, `routes/`).
+* **Logique Métier** : Contrôleurs d'administration (`AdminOrderController.php`, `AdminProductController.php`) et gestion du panier (`CartController.php`).
+* **Base de données** : Migrations pour les tables `users`, `produits`, `commandes` et seeders de données.
+* **Vues Admin** : Templates Blade pour le tableau de bord (`tableau de bord.blade.php`) et la gestion des produits.
+
+### 2. `TEKEU-KAMCHI-NATHAN-FRANCK` (Frontend UX)
+Cette branche se concentre sur l'interface utilisateur et la conception visuelle.
+* **Interfaces** : Fichiers `accueil.html` et `login.html` avec leurs styles CSS dédiés.
+* **Logique JS** : Scripts d'affichage des détails produits (`product-detail.js`).
+* **Conception** : Diagrammes de contexte et d'activité (`Diagramme-de-contexte...drawio`).
+
+### 3. `TCHAPET-NGAMINI-ROLAIN` (Contact & Auth Backend)
+Combine des fonctionnalités backend avec le module de contact.
+* **Backend** : Contrôleurs d'authentification (`LoginController.php`, `RegisterController.php`) et de commande.
+* **Module Contact** : Dossier dédié `contact/` contenant le formulaire HTML et le style CSS.
+* **Documentation** : PDF technique sur la communication Frontend-Backend.
+
+### 4. `Amina-AKOULOUZE` (Prototypage Admin UI)
+Dédiée à l'intégration HTML/CSS du Back-office.
+* **Maquettes** : Fichiers statiques pour toutes les pages admin (`admin-categories.html`, `admin-clients.html`, `admin-commandes.html`).
+* **Styles** : Feuilles de style CSS spécifiques pour chaque section du tableau de bord.
+
+### 5. `NBEUYO-KOLOGNE` (Architecture JS)
+Spécialisée dans la modularisation du JavaScript Frontend.
+* **Scripts** : Découpage de la logique en fichiers distincts : `boutique.js`, `categories.js`, `clients.js`, `commandes.js`.
+* **Docs** : Cahier des charges fonctionnel (`SpecFonc_ProgWeb-2.pdf`).
+
+### 6. `ESSONO-SANDRINE-FLORA` (Catalogue Boutique)
+Gère l'affichage des catégories de produits.
+* **Pages** : Fichiers HTML pour les rayons `femmes.html`, `hommes.html`, `materiel.html`.
+* **Assets** : Banque d'images des produits dans le dossier `imagesprogrammation/`.
+
+### 7. `ATCHINE-OUDAM-HANNIEL` (Accueil & Navigation)
+Développe l'expérience d'accueil utilisateur.
+* **Variantes** : Version standard `accueil.html` et version connectée `accueil_apres_connexion.html`.
+* **Styles** : CSS pour la mise en page de l'accueil et du formulaire de contact.
+
+### 8. `AHMED-JALIL` (Sécurité Backend)
+Implémentation avancée de la sécurité Laravel.
+* **Auth** : Logique d'authentification personnalisée dans `app/Http/Authentification/`.
+* **API** : Définition des routes API et Web.
+* **Modèles** : Modèles Eloquent pour `User`, `Produit`, `Commande`, `Panier`.
+
+### 9. `NZUNGANG-MBOUM-FREDDY-LIONEL` (Vitrine & Docs)
+Servant de vitrine et de référentiel documentaire.
+* **Landing Page** : Fichier `apercu.html`.
+* **Documentation** : Version PDF complète du projet et spécifications fonctionnelles.
+* **Assets** : Images WebP et icônes pour l'interface.
+
+### 10. `NJEMPOU-YAMPEN-RACHIDA` (Module Login)
+Focalisée exclusivement sur l'interface de connexion.
+* **Composants** : Structure isolée dans le dossier `page login/` avec HTML, CSS et JS dédiés.
+* **Visuels** : Images d'arrière-plan spécifiques pour la page de connexion.
+
+### 11. `OWONA-NGUINI-MATTEO-JORDAN` (Espace Utilisateur)
+Gestion du profil client.
+* **Interface** : Fichier `profil.html` pour l'affichage des données personnelles.
+* **Design** : Fichier `style.css` unique pour cette section.
+
+### 12. `AKOULOUZE-MANY-EVA-FELICIA-MEG` (Cas d'Utilisation)
+Documentation des interactions et pages boutique.
+* **Catalogue** : Pages `shop.html` et détails produits.
+* **Analyse** : Document PDF détaillant les cas d'utilisation du système.
+
+### 13. `admin-css-html` (Kit UI Admin)
+Fournit les briques visuelles pour l'administration.
+* **Styles** : CSS distincts pour dashboard, produits et catégories.
+* **Vues** : Structures HTML de base pour l'interface administrateur.
+
+### 14. `TP1` (Initialisation)
+Snapshot de l'état initial du projet.
+* **Contenu** : Version statique HTML/CSS de base (Accueil, Login, Contact).
+
+### 15. `TP2` (Interactivité)
+Snapshot de l'étape d'ajout du JavaScript.
+* **Évolution** : Introduction des scripts `login.js` et `panier.js` pour dynamiser le statique.
+
+### 16. `TP4` (Backend Avancé)
+Version correspondant au rendu du TP4 Laravel.
+* **Framework** : Structure Laravel complète avec tests unitaires et fonctionnels (`tests/Feature/`).
+
+### 17. `d5f9f2ac...` (Main Snapshot)
+Branche principale agissant comme point de convergence.
+* **Intégration** : Rassemble les fichiers racines (`README.md`, `products-data.js`) et sert de base pour l'application globale.
+
+
 ## Objectifs du projet
 
 Développer une application de vente en ligne avec :
