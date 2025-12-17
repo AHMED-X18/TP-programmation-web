@@ -37,8 +37,33 @@ Route::middleware('guest')->group(function () {
     });
 });
 
-Route::view('/contact', 'contact')->name('contact');
+// 1. Route pour AFFICHER la page (GET)
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
+use Illuminate\Http\Request;
+use App\Services\ContactService;
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+    
+
+Route::post('/contact', function (Request $request, ContactService $contactService) {
+    // 1. Validation des données
+    $validated = $request->validate([
+        'name'    => 'required|string|max:255',
+        'email'   => 'required|email',
+        'message' => 'required|string',
+    ]);
+
+    // 2. Envoi via le service
+    try {
+        $contactService->sendContactEmail($validated);
+        return redirect()->back()->with('success', 'Votre message a bien été envoyé !');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Un problème est survenu, réessayez plus tard.');
+    }
+})->name('contact.submit');
 Route::post('/deconnexion', [LoginController::class, 'logout'])->name('logout');
 
 /*

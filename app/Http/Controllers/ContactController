@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// 1. N'oubliez pas d'importer votre service ici
+use App\Services\ContactService; 
+
+class ContactController extends Controller
+{
+    // 2. Ajoutez le service en paramètre de la fonction submit
+    public function submit(Request $request, ContactService $contactService)
+    {
+        // 1. Validation des données
+        $validated = $request->validate([
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email',
+            'message' => 'required|string|min:10',
+        ]);
+
+        // 2. APPEL DU SERVICE pour envoyer l'email
+        // C'est ici que la magie opère !
+        $contactService->sendContactEmail($validated);
+
+        // Optionnel : Garder le log pour trace
+        \Log::info("Email envoyé pour : " . $validated['name']);
+
+        // 3. Redirection avec un message de succès
+        return back()->with('success', 'Merci ' . $validated['name'] . ', votre message a bien été envoyé !');
+    }
+}
