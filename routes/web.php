@@ -96,3 +96,7 @@ Route::post('/panier/vider', [CartController::class, 'clear'])->name('cart.clear
 Route::post('/panier/ajouter/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::patch('/panier/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/panier/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+
+Route::get('/profile/password', [ProfileController::class, 'editPassword'])->name('password.edit');
+Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');

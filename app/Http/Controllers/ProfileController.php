@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
@@ -39,5 +42,30 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->route('profile.index')->with('success', 'Profil mis à jour avec succès !');
+    }
+
+
+
+        public function editPassword()
+    {
+        // Renvoie vers le fichier resources/views/profile/password.blade.php
+        return view('profile.password'); 
+    }
+
+    public function updatePassword(Request $request)
+    {
+        // 1. Validation stricte
+        $request->validate([
+            'current_password' => ['required', 'current_password'], // Vérifie que c't l'ancien MDP
+            'password' => ['required', 'confirmed', Password::min(8)], // Nouveau MDP (min 8 carac)
+        ]);
+
+        // 2. Mise à jour de l'objet User
+        $user = $request->user();
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return back()->with('success', 'Mot de passe modifié avec succès !');
     }
 }

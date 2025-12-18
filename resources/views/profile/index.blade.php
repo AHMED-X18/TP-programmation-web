@@ -37,8 +37,7 @@
             <div class="icon-wrapper"><i class="fa-solid fa-gear"></i></div>
             <h2>Paramètres</h2>
             <ul style="list-style: none; padding: 0;">
-                <li><a href="#">Changer le mot de passe</a></li>
-                <li><a href="#">Préférences de notification</a></li>
+                <li><a href="{{ route('password.edit') }}">Changer le mot de passe</a></li>
             </ul>
         </div>
     </section>
